@@ -5,7 +5,16 @@
 /*
 
     0.  Normalize
-
+    1.  Grid
+    2.  Typography
+    3.  Header
+    4.  Navigation
+    5.  Index
+    6.  Post Header
+    7.  Post Typography
+    8.  Post Images
+    9.  Footer
+    10. Pages
 */
 
 /* ==========================================================================
@@ -85,3 +94,314 @@ button::-moz-focus-inner,
 input::-moz-focus-inner { border: 0; padding: 0; }
 textarea { overflow: auto; vertical-align: top; }
 table { border-collapse: collapse; border-spacing: 0; }
+.clearfix:before,
+.clearfix:after {content:"";display:table;}
+.clearfix:after {clear:both;}
+.clearfix {zoom:1; /* For IE 6/7 (trigger hasLayout) */}
+
+/* ==========================================================================
+   1. Grid - 4 column, responsive grid
+   ========================================================================== */
+   
+   body {
+       background-color: #f7f5ef;
+   }
+   
+   /*
+    Max Width: 1280px
+    max Column Width: 250px;
+    Gutter width: 40px;
+    Outer Margins: 80px;
+   */
+   
+   .grid-wrapper {
+       display: block;
+       position: relative;
+       width: 100%;
+       max-width: 1280px;
+       height: auto;
+       margin:0 auto;
+       padding:20px;
+       box-sizing: border-box;
+   }
+   
+   /*
+   .grid-blocks hold contents inside of Grid wrappers.
+   they are like little boxes and stuff.
+   They can be different colors, but are usually colorless.
+   */
+   .grid-block {
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        padding: 60px;
+        margin: 0px auto;
+   }
+   
+   .grid-block.colored {
+       background: #0063d1; /* The Global Blue Color */
+   }
+   
+   .grid-row {
+       display: block;
+       position: relative;
+       width: 100%;
+       height: auto;
+       clear:both;
+   }
+   
+   .grid-column {
+       display: block;
+       width:100%;
+       float:left;
+   }
+   
+   /* Single Column is centered */
+   .grid-column.single-column {
+       width:25%;
+       max-width: 250px;
+       margin-right:40px;
+   }
+   .grid-column.single-column:nth-child(4n+0) {
+       margin-right:none;
+   }
+   
+   .grid-column.double {
+       width:50%;
+       max-width:540px;
+   }
+   
+   .grid-column.double:nth-child(2n+0) {
+       margin-right:none;
+   }
+   
+   /* Centered Double*/
+   .grid-column.double-centered-column {
+       width:100%;
+       max-width: 540px;
+       margin-right:auto;
+       margin-left:auto;
+       float:none;
+   }
+
+/* ==========================================================================
+  2. Typography - 
+  ========================================================================== */
+  
+  /* 
+  Headers and paragraphs obviously expand to fill the width of their containg block.  
+  all typographic elements only have bottom margins, never any other margins.
+  */
+  
+  body {
+      font-size:16px;
+      font-family:georgia, serif;
+      color:#272727;
+  }
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+        font-family: Verdana, sans-serif;
+        font-weight: 400;
+        margin-bottom:1rem;
+  }
+  
+  p {
+      font-size:1rem;
+      line-height: 1.5rem;
+      margin-bottom:2rem;
+      margin-top:0px;
+  }
+  
+  /* Never style raw anchor tags., only a tags inside of another element */
+  /*a*/, p > a {
+      text-decoration: underline;
+      color:inherit;
+      font-size:inherit;
+  }
+  
+  .grid-block.colored * {
+      color:white;
+  }
+  
+  
+  
+  
+  
+  
+  /* ==========================================================================
+    3. Header - 
+    ========================================================================== */
+
+  .grid-block:first-child {
+      height: calc(100vh - 40px);
+      min-height: 400px;
+  }
+      
+  .article-intro {
+      position: absolute;
+      bottom:60px;
+      left:60px;
+      
+      width:calc(100% - 120px);
+  }
+
+  .article-intro > p {
+      font-size:1.5rem;
+      line-height: 2.25rem;
+  }
+  
+  .article-intro > p a, .article-intro > h1 a {
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      border-bottom:1px solid transparent;
+  }
+  .article-intro > p a:hover, .article-intro > h1 a:hover {
+      /*text-decoration: underline;*/
+      border-bottom:1px solid white;
+  }
+  
+  .main-header .page-title a {
+      text-decoration: none;
+  }
+  
+  /* ==========================================================================
+    4. Navigation - 
+    ========================================================================== */
+    
+  .main-header .page-title {
+      font-size:1.5rem;
+      line-height: 1.5rem;
+      float:left;
+      margin:0px;
+  }
+  
+  .main-header .main-nav {
+      float:right;
+  }
+  .main-header .main-nav ul {
+      display: inline;
+      padding: 0px;
+      margin: 0px;
+  }
+  .main-header .main-nav ul li {
+      list-style-type: none;
+      display: inline;
+  }
+  .main-header .main-nav a {
+      float:right;
+      margin-left:20px;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      border-bottom:1px solid transparent;
+  }
+      
+  .main-header .main-nav a:hover {
+      border-bottom:1px solid white;
+  }
+  
+  /*Buttons*/
+  .button {
+      font-family: Verdana, sans-serif;
+      border-width:1px;
+      border-style:solid;
+      border-color:inherit;
+      padding:15px 25px;
+      text-decoration: none;
+      width: 100px;
+      height: auto;
+      text-align: center;
+      position: relative;
+      display: block;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+
+      -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      -webkit-transition: all 150ms cubic-bezier(0.260, 1.480, 0.470, 0.960);
+      transition: all 150ms cubic-bezier(0.260, 1.480, 0.470, 0.960);
+  }
+  
+  .button:hover {
+      -webkit-box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.20);
+      box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.20);
+      transform: scale(1.01, 1.01);
+
+  }
+  .grid-block.colored .button {
+      border-color: white;
+  }
+  .submitbutton:focus, .submitbutton:visited {
+      outline: none;
+  }
+  
+  
+  /* ==========================================================================
+    4. Index - 
+    ========================================================================== */
+    
+    .index-post-summary a, .index-post-summary a:visited {
+        color:#0063d1;
+    }
+    
+    .index-post-summary section.post-excerpt {
+        column-count: 2;
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        column-gap: 40px;
+        column-rule:none;
+        margin-bottom:20px;
+    }
+    
+    .index-post-summary .button.square {
+        margin-bottom:20px;
+        padding:10px 15px;
+        color:#0063d1;
+        border-color:#0063d1;
+    }
+    
+    /* ==========================================================================
+      5. Post Header - 
+      ========================================================================== */
+      
+    .article-intro .post-title {
+        margin:0px;
+    }
+      
+    /* ==========================================================================
+      6. Post Typography - 
+      ========================================================================== */
+      
+    .something {
+        
+    }
+      
+      
+    /* ==========================================================================
+      7. Post Images - 
+      ========================================================================== */
+      
+    .grid-column img {
+        max-width: 100%;
+    }
+    
+    /* ==========================================================================
+      4. Footers - 
+      ========================================================================== */
+      
+      
+    footer.post-meta .author-thumb {
+        width: 25px;
+        border-radius:50px;
+        float:left;
+        margin-right:10px;
+    }
+
+    footer.post-meta {
+        line-height: 25px;
+    }
+      
+    .something {
+        
+    }
