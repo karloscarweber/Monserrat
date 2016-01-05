@@ -1,11 +1,11 @@
 {{! This is the post loop - each post will be output using this markup }}
 {{#foreach posts}}
-<article class="{{post_class}} index-post-summary grid-column double-centered-column">
+<article class="{{post_class}} index-post-summary grid-column double-column clearfix">
     <header class="post-header">
-        <h4 class="post-title"><a href="{{url}}">{{{title}}}</a></h4>
+        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
     </header>
     <section class="post-excerpt clearfix">
-        <p>{{excerpt words="60"}} <a class="read-more" href="{{url}}">Read More...</a></p>
+        <p>{{excerpt words="60"}}</p>
     </section>
     <a href="{{url}}" class="button square">Read More</a>
     <footer class="post-meta clearfix">

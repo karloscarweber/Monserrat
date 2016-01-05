@@ -165,26 +165,39 @@ table { border-collapse: collapse; border-spacing: 0; }
        margin-right:40px;
    }
    .grid-column.single-column:nth-child(4n+0) {
-       margin-right:none;
+       margin-right:0px;
    }
    
-   .grid-column.double {
-       width:50%;
+   .grid-column.double-column {
+       width:45%;
+       width:calc(50% - 20px);
        max-width:540px;
+       margin-right:40px;
+       margin-bottom:40px;
    }
    
-   .grid-column.double:nth-child(2n+0) {
-       margin-right:none;
+   .grid-column.double-column:nth-child(2n+0) {
+       margin-right:0px;
    }
    
    /* Centered Double*/
    .grid-column.double-centered-column {
-       width:100%;
+       width: 45%;
+       width: calc(50% - 20px);
        max-width: 540px;
-       margin-right:auto;
-       margin-left:auto;
-       float:none;
+       margin-right: 0%;
+       margin-left: 55%;
+       margin-left: calc(50% + 20px);
+       float: none;
    }
+   @media (max-width: 960px) {
+       .grid-column.double-centered-column {
+           width: 100%;
+           margin-left:auto;
+           margin-right:auto;
+       }
+   }
+
 
 /* ==========================================================================
   2. Typography - 
@@ -206,6 +219,24 @@ table { border-collapse: collapse; border-spacing: 0; }
         font-family: Verdana, sans-serif;
         font-weight: 400;
         margin-bottom:1rem;
+  }
+  h1 {
+      font-size:3rem;
+  }
+  h2 {
+      font-size:2rem;
+  }
+  h3 {
+      font-size:1.5rem;
+  }
+  h4 {
+      font-size:1.25rem;
+  }
+  h5 {
+      font-size:1rem;
+  }
+  h6 {
+      font-size:0.75rem;
   }
   
   p {
@@ -302,6 +333,10 @@ table { border-collapse: collapse; border-spacing: 0; }
       border-bottom:1px solid white;
   }
   
+  .pagination {
+      clear:both;
+  }
+  
   /*Buttons*/
   .button {
       font-family: Verdana, sans-serif;
@@ -349,9 +384,15 @@ table { border-collapse: collapse; border-spacing: 0; }
     .index-post-summary section.post-excerpt {
         column-count: 2;
         -webkit-column-count: 2; /* Chrome, Safari, Opera */
-        column-gap: 40px;
+        column-gap: 20px;
+        -webkit-column-gap: 40px;
         column-rule:none;
+        -webkit-column-rule:none;
         margin-bottom:20px;
+    }
+    .index-post-summary section.post-excerpt p {
+        margin:0px;
+        text-align:justify;
     }
     
     .index-post-summary .button.square {
@@ -368,6 +409,14 @@ table { border-collapse: collapse; border-spacing: 0; }
     .article-intro .post-title {
         margin:0px;
     }
+    
+    .post-header .post-title {
+        /*font-weight: 600;*/
+    }
+    
+    .post-header .post-title a {
+        text-decoration: none;
+    }
       
     /* ==========================================================================
       6. Post Typography - 
@@ -381,9 +430,23 @@ table { border-collapse: collapse; border-spacing: 0; }
     /* ==========================================================================
       7. Post Images - 
       ========================================================================== */
-      
-    .grid-column img {
-        max-width: 100%;
+    
+    /* target embedded images */
+    .grid-column p img {
+        width: 100%;
+        max-width: 45%;
+        max-width: calc(50% - 20px);
+        position: absolute;
+        margin-left: -55%;
+        margin-left: calc(-50% - 20px);
+        
+    }
+    @media (max-width: 960px) {
+      .grid-column p img {
+        position: relative;
+        margin-left:0%;
+        max-width:100%;
+      }
     }
     
     /* ==========================================================================
