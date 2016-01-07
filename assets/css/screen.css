@@ -216,12 +216,14 @@ table { border-collapse: collapse; border-spacing: 0; }
   
   
   h1, h2, h3, h4, h5, h6 {
-        font-family: Verdana, sans-serif;
-        font-weight: 400;
-        margin-bottom:1rem;
+    font-family: Verdana, sans-serif;
+    font-weight: 300;
+    margin-bottom:1rem;
+    margin-top:0rem;
+    letter-spacing: 1px;
   }
   h1 {
-      font-size:3rem;
+    font-size:3rem;
   }
   h2 {
       font-size:2rem;
@@ -256,11 +258,6 @@ table { border-collapse: collapse; border-spacing: 0; }
   .grid-block.colored * {
       color:white;
   }
-  
-  
-  
-  
-  
   
   /* ==========================================================================
     3. Header - 
@@ -335,6 +332,11 @@ table { border-collapse: collapse; border-spacing: 0; }
   
   .pagination {
       clear:both;
+      text-align: center;
+  }
+  
+  .pagination a, .pagination a:hover {
+      color: #0063d1;
   }
   
   /*Buttons*/
@@ -359,22 +361,38 @@ table { border-collapse: collapse; border-spacing: 0; }
       transition: all 150ms cubic-bezier(0.260, 1.480, 0.470, 0.960);
   }
   
-  .button:hover {
-      -webkit-box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.20);
-      box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.20);
-      transform: scale(1.01, 1.01);
-
-  }
-  .grid-block.colored .button {
-      border-color: white;
-  }
-  .submitbutton:focus, .submitbutton:visited {
-      outline: none;
-  }
+    .button:hover {
+        -webkit-box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.20);
+        box-shadow: 0px 10px 14px 0px rgba(0,0,0,0.20);
+        transform: scale(1.01, 1.01);
+    }
+    .grid-block.colored .button {
+        border-color: white;
+    }
+    .submitbutton:focus, .submitbutton:visited {
+        outline: none;
+    }
   
+    footer a, footer a:visited {
+        color:#0063d1;
+    }
+    
+    /* asides */
+    aside > a {
+        text-decoration:none;
+    }
+    
+    aside > a:hover {
+        text-decoration: underline;
+    }
+    
+    aside.grid-column.double-column.read-next, aside.grid-column.double-column.read-previous {
+        margin-bottom:0px;
+    }
+    
   
   /* ==========================================================================
-    4. Index - 
+    5. Index - 
     ========================================================================== */
     
     .index-post-summary a, .index-post-summary a:visited {
@@ -403,7 +421,7 @@ table { border-collapse: collapse; border-spacing: 0; }
     }
     
     /* ==========================================================================
-      5. Post Header - 
+      6. Post Header - 
       ========================================================================== */
       
     .article-intro .post-title {
@@ -419,16 +437,16 @@ table { border-collapse: collapse; border-spacing: 0; }
     }
       
     /* ==========================================================================
-      6. Post Typography - 
+      7. Post Typography - 
       ========================================================================== */
       
-    .something {
-        
+    p a, p a:visited {
+        color:#0063d1;
     }
       
       
     /* ==========================================================================
-      7. Post Images - 
+      8. Post Images - 
       ========================================================================== */
     
     /* target embedded images */
@@ -450,9 +468,8 @@ table { border-collapse: collapse; border-spacing: 0; }
     }
     
     /* ==========================================================================
-      4. Footers - 
+      9. Footers - 
       ========================================================================== */
-      
       
     footer.post-meta .author-thumb {
         width: 25px;
@@ -465,6 +482,21 @@ table { border-collapse: collapse; border-spacing: 0; }
         line-height: 25px;
     }
       
-    .something {
-        
+    footer a, footer a:visited {
+        color:#0063d1;
     }
+    
+    .grid-wrapper > footer {
+        max-width: 500px;
+        margin:60px auto 40px;
+        text-align:center;
+    }
+    
+    .grid-wrapper > footer section {
+        display: inline;
+    }
+    
+    
+    /* ==========================================================================
+      10. Pages - 
+      ========================================================================== */

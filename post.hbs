@@ -47,14 +47,31 @@
     </div>
 </main>
 
-<aside class="read-next">
-    {{#next_post}}
-    <a class="read-next-story" href="{{url}}"><h2>Newer</h2></a>
-    {{/next_post}}
-    {{#prev_post}}
-    <a class="read-next-story prev" href="{{url}}"><h2>Older</h2></a>
-    {{/prev_post}}
-</aside>
-
+<div class="content grid-block colored clearfix">
+    <div class="grid-row">
+        <aside class="read-next grid-column double-column">
+            {{#next_post}}
+            <a class="read-next-story" href="{{url}}"><h3>Next Article</h3></a>
+            <br>
+            <a href="{{url}}"><h3>{{title}}</h3></a>
+            <section class="post-excerpt clearfix">
+                <p>{{excerpt words="60"}}</p>
+            </section>
+            <a href="{{url}}" class="button square">Read More</a>
+            {{/next_post}}
+        </aside>
+        <aside class="read-previous grid-column double-column">
+            {{#prev_post}}
+            <a class="read-next-story prev" href="{{url}}"><h3>Previous Article</h3></a>
+            <br>
+            <a href="{{url}}"><h3>{{title}}</h3></a>
+            <section class="post-excerpt clearfix">
+                <p>{{excerpt words="60"}}</p>
+            </section>
+            <a href="{{url}}" class="button square">Read More</a>
+            {{/prev_post}}
+        </aside>
+    </div>
+</div>
 
 {{/post}}
