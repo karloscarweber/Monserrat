@@ -340,6 +340,7 @@ table { border-collapse: collapse; border-spacing: 0; }
     top: 0px;
     background-size: cover;
     opacity: 0.25;
+    pointer-events: none;
   }
       
   .article-intro {
@@ -392,6 +393,10 @@ table { border-collapse: collapse; border-spacing: 0; }
     4. Navigation - 
     ========================================================================== */
     
+  .main-header {
+      display: block;
+      position: relative;
+  }
   .main-header .page-title {
       font-size:1.5rem;
       line-height: 1.5rem;
