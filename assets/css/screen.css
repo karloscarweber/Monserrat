@@ -324,13 +324,36 @@ table { border-collapse: collapse; border-spacing: 0; }
       height: calc(100vh - 40px);
       min-height: 400px;
   }
+  .page .grid-block:first-child {
+      height: auto;
+      min-height: 10px;
+  }
+  
+  .grid-block .image-div {
+    display: block;
+    width: inherit;
+    height: calc(100vh - 40px);
+    min-height: 400px;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    top: 0px;
+    background-size: cover;
+    opacity: 0.25;
+  }
       
   .article-intro {
       position: absolute;
       bottom:60px;
       left:60px;
-      
       width:calc(100% - 120px);
+  }
+  
+  .page .article-intro {
+      display: block;
+      position: static;
+      clear: both;
+      width:100%;
   }
 
   .article-intro > p {
