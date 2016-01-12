@@ -524,7 +524,9 @@ table { border-collapse: collapse; border-spacing: 0; }
     }
     .index-post-summary section.post-excerpt p {
         margin:0px;
-        text-align:justify;
+        text-align:left;
+        font-size:0.95rem;
+        -webkit-font-smoothing: subpixel-antialiased;
     }
     
     .index-post-summary .button.square {
