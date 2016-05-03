@@ -14,7 +14,12 @@
     7.  Post Typography
     8.  Post Images
     9.  Footer
-    10. Pages
+    10. Pages, and special post stuff
+    11. Next/Previous Post buttons
+    12. Author Aside Box
+    13. Author page
+    14. Freelancer page
+    15. Tags page.
 */
 
 /* ==========================================================================
@@ -45,7 +50,7 @@ audio, canvas, video { display: inline-block; }
 audio:not([controls]) { display: none; height: 0; }
 [hidden], template { display: none; }
 html {
-   font-family: sans-serif;
+   font-family: "Lato", sans-serif;
    -ms-text-size-adjust: 100%;
    -webkit-text-size-adjust: 100%;
 }
@@ -146,24 +151,20 @@ table { border-collapse: collapse; border-spacing: 0; }
    They can be different colors, but are usually colorless.
    */
    .grid-block {
-        display: block;
-        position: relative;
-        box-sizing: border-box;
-        width: 100%;
-        height: auto;
-        padding: 60px;
-        margin: 0px auto;
-        border-radius: 10px;
-        overflow: hidden;
+      display: block;
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      height: auto;
+      padding: 40px;
+      margin: 0px auto;
+      border-radius: 10px;
+      overflow: hidden;
    }
    @media (max-width: 640px) {
        .grid-block {
-           padding: 60px 20px;
+           padding: 40px 20px;
        }
-   }
-   
-   .grid-block.colored {
-       background: #1C1C1C; /* The Global Black Color */
    }
    
    .grid-row {
@@ -246,7 +247,7 @@ table { border-collapse: collapse; border-spacing: 0; }
   
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: Verdana, sans-serif;
+    font-family: "Lato", sans-serif;
     font-weight: 300;
     margin-bottom:1rem;
     margin-top:0rem;
@@ -331,17 +332,40 @@ table { border-collapse: collapse; border-spacing: 0; }
   }*/
   
   .grid-block.bluetext * {
-      color:#0063d1;
+      color:#0DA5E4;
   }
   
   /* ==========================================================================
     3. Header - 
     ========================================================================== */
 
+    /* Homepage header and components */
+    .grid-block.homepageMasthead {
+      background: #1C1C1C; /* The Global Black Color */
+    }
+    
+    /* Page header and components */
+    .page.page-template .grid-block.pageMasthead:first-child {
+      max-height:140px;
+    }
+    
+    /* index page header */
+    .grid-block.notHomepageMasthead:first-child {
+      background: #1C1C1C; /* The Global Black Color */
+      height: 140px;
+      min-height: auto;
+    }
+    
+    /*colored short-grid-block*/
+
   /*not home page first-child */
   .grid-block:first-child {
       height: calc(100vh - 40px);
       min-height: 400px;
+  }
+  .post-template .grid-block:first-child {
+      max-height: 600px;
+      background-color:black;
   }
   .page .grid-block:first-child {
       height: auto;
@@ -360,13 +384,14 @@ table { border-collapse: collapse; border-spacing: 0; }
     background-size: cover;
     opacity: 0.5;
     pointer-events: none;
+    background-position: bottom;
   }
       
   .article-intro {
-      position: absolute;
-      bottom:60px;
-      left:60px;
-      width:calc(100% - 120px);
+    position: absolute;
+    bottom:40px;
+    left:40px;
+    width:calc(100% - 120px);
   }
   
   .page .article-intro {
@@ -413,6 +438,103 @@ table { border-collapse: collapse; border-spacing: 0; }
   
   .main-header .page-title a {
       text-decoration: none;
+      color:#D8DEE3;
+  }
+  
+  .main-header .page-title:hover {
+      text-decoration: none;
+      background:#D8DEE3;
+  }
+  .main-header .page-title:hover a {
+    color:black;
+  }
+  
+  .homepageMasthead .article-intro {
+      position: absolute;
+      bottom:40px;
+      left:40px;
+      width:calc(100% - 120px);
+  }
+
+  .homepageMasthead  .article-intro > h1 a {
+    color:white;
+  }
+
+  .homepageMasthead  .article-intro > p {
+      font-size: 1.375rem;
+      line-height: 2.125rem;
+      margin-right: 25%;
+      color:#ACACAC !important; /* greyed color */
+  }
+  @media (max-width:960px) {
+    .homepageMasthead  .article-intro > p {
+        font-size: 1.12rem;
+        line-height: 1.875rem;
+        margin-right: 0%;
+    }
+  }
+  @media (max-width:640px) {
+    .homepageMasthead  .article-intro > p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+  }
+
+  .homepageMasthead .article-intro > p a, .homepageMasthead .article-intro > h1 a, .homepageMasthead .article-intro > p a:visited, .homepageMasthead .article-intro > h1 a:visited {
+    color:inherit;
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+    border-bottom:1px solid transparent;
+  }
+  
+  .homepageMasthead .article-intro > p a:hover, .homepageMasthead .article-intro > h1 a:hover {
+    /*text-decoration: underline;*/
+    border-bottom:1px solid white;
+  }
+  .homepageMasthead .article-intro .post-title {
+    color: white;
+    font-size:1.875rem;
+    line-height:2.75rem;
+    margin:0px;
+    margin-bottom:20px;
+  }
+  
+  .homepageMasthead .article-intro .articlebutton, .homepageMasthead .article-intro a.articlebutton {
+    display:inline-block;
+    padding:10px 20px;
+    border: 1px solid #D8DEE3;
+    color: #D8DEE3;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .homepageMasthead .article-intro .articlebutton:hover, .homepageMasthead .article-intro a.articlebutton:hover {
+    transition: all 0.15s ease-in-out;
+    background: #D8DEE3;
+    color: black;
+  }
+  
+  .homepageImageBackground {
+    display: block;
+    border: 0;
+    width: calc(100% + 80px);
+    height:100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-position:bottom;
+    background-size:cover;
+    background-repeat:no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    /*z-index: 1*/
   }
   
   /* ==========================================================================
@@ -420,14 +542,20 @@ table { border-collapse: collapse; border-spacing: 0; }
     ========================================================================== */
     
   .main-header {
-      display: block;
-      position: relative;
+    display: block;
+    position: relative;
+    z-index: 10;
   }
   .main-header .page-title {
-      font-size:1.5rem;
-      line-height: 1.5rem;
-      float:left;
-      margin:0px;
+    font-family:"Lato", sans-serif;
+    font-size:1rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    float:left;
+    margin:0px;
+    padding:10px 20px;
+    border:1px solid #D8DEE3;
+    border-radius:6px;
   }
   @media (max-width:640px) {
       .main-header .page-title {
@@ -437,27 +565,28 @@ table { border-collapse: collapse; border-spacing: 0; }
   }
   
   .main-header .main-nav {
-      float:right;
+    float:right;
+    margin-top: 13px;
   }
   .main-header .main-nav ul {
-      display: inline;
-      padding: 0px;
-      margin: 0px;
+    display: inline;
+    padding: 0px;
+    margin: 0px;
   }
   .main-header .main-nav ul li {
-      list-style-type: none;
-      display: inline;
+    list-style-type: none;
+    display: inline;
   }
   .main-header .main-nav a {
-      float:right;
-      margin-left:20px;
-      text-decoration: none;
-      transition: all 0.15s ease-in-out;
-      border-bottom:1px solid transparent;
-      font-family:'Lato', sans-serif;
-      font-size:0.75rem;
-      line-height:1.125rem;
-      color:#D8DEE3;
+    float:right;
+    margin-left:20px;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+    border-bottom:1px solid transparent;
+    font-family:'Lato', sans-serif;
+    font-size:0.75rem;
+    line-height:1.125rem;
+    color:#D8DEE3;
   }
       
   .main-header .main-nav a:hover {
@@ -470,12 +599,12 @@ table { border-collapse: collapse; border-spacing: 0; }
   }
   
   .pagination a, .pagination a:hover {
-      color: #0063d1;
+      color: #0DA5E4;
   }
   
   /*Buttons*/
   .button {
-      font-family: Verdana, sans-serif;
+      font-family: "Lato", sans-serif;
       border-width:1px;
       border-style:solid;
       border-color:inherit;
@@ -517,7 +646,7 @@ table { border-collapse: collapse; border-spacing: 0; }
     }
   
     footer a, footer a:visited {
-        color:#0063d1;
+        color:#0DA5E4;
     }
     
     /* asides */
@@ -528,52 +657,195 @@ table { border-collapse: collapse; border-spacing: 0; }
     aside > a:hover {
         text-decoration: underline;
     }
-    
-    aside.grid-column.double-column.read-next, aside.grid-column.double-column.read-previous {
-        margin-bottom:0px;
-    }
-    
   
   /* ==========================================================================
     5. Index - 
     ========================================================================== */
     
+    /* Hide the first post of course. */
+    /* We're featuring it in the tippy top. */
+    .homepageGrid-row .post:first-child {
+      display: none;
+    }
+    /* but on the subsequent index pages we don't want to hide this. */
+    .paged.archive-template .homepageGrid-row .post:first-child {
+      display: block;
+    }
+    
     article.index-post-summary {
         min-height: 360px;
     }
     
-    .index-post-summary a, .index-post-summary a:visited {
-        color:#0063d1;
+    .index-post-summary footer p {
+      opacity:0.5;
+      font-family:"Lato", sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      max-width:290px;
+      width:auto;
+      margin-top:10px;
+      margin-bottom:0px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
     }
+    
+    .index-post-summary footer p, .index-post-summary footer.post-meta a, .index-post-summary footer.post-meta a:visited {
+        color:#373737;
+    }
+    
+    
     
     .index-post-summary section.post-excerpt {
-        column-count: 2;
-        -webkit-column-count: 2; /* Chrome, Safari, Opera */
-        column-gap: 20px;
-        -webkit-column-gap: 40px;
-        column-rule:none;
-        -webkit-column-rule:none;
         margin-bottom:20px;
-    }
-    @media (max-width: 540px) {
-        .index-post-summary section.post-excerpt {
-            column-count:1;
-            -webkit-column-count:1;
-        }
     }
     .index-post-summary section.post-excerpt p {
-        margin:0px;
-        text-align:left;
-        font-size:0.95rem;
-        -webkit-font-smoothing: subpixel-antialiased;
+      margin:0px;
+      text-align:left;
+      font-family:"Lato", sans-serif;
+      font-size:1.5rem;
+      line-height: 34px;
+      color:#767676;
+      -webkit-font-smoothing: antialiased;
     }
     
-    .index-post-summary .button.square {
-        margin-bottom:20px;
-        padding:10px 15px;
-        color:#0063d1;
-        border-color:#0063d1;
+    .index-post-summary a.index-post-button, .index-post-summary a.index-post-button:visited {
+      display:inline-block;
+      font-family:"Lato", sans-serif;
+      font-size: 1rem;
+      font-weight:500;
+      line-height: 1.5rem;
+      margin-bottom:20px;
+      padding:10px 20px;
+      color:#373737;
+      border:1px solid #373737;
+      border-radius: 6px;
+      text-decoration: none;
+      text-transform:uppercase;
+      transition: all 0.15s ease-in-out;
     }
+    
+    .index-post-summary a.index-post-button:hover {
+      background:#373737;
+      color: white;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased; 
+    }
+    
+    /* Featured posts on the homepage */
+    .index-post-summary-featured {
+      height: 600px;
+      width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom:20px;
+      background:black;
+    }
+    
+    .index-post-summary-featured .featuredImageBackground {
+      display: block;
+      border: 0;
+      width: 100%;
+      height:100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-position:bottom;
+      background-size:cover;
+      background-repeat:no-repeat;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .index-post-summary-featured .post-header .post-title {
+      color:#ffffff;
+    }
+    
+    .index-post-summary-featured .post-header .post-title a, .index-post-summary-featured .post-header .post-title a:visited {
+      color:#ffffff;
+    }
+    
+    .index-post-summary-featured .article-intro {
+        position: absolute;
+        bottom:40px;
+        left:40px;
+        width:calc(100% - 120px);
+    }
+    
+    .index-post-summary-featured footer p {
+      opacity:0.5;
+      font-family:"Lato", sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      max-width:290px;
+      width:auto;
+      margin-top:10px;
+      margin-bottom:0px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    
+    .index-post-summary-featured footer p, .index-post-summary-featured footer.post-meta a, .index-post-summary-featured footer.post-meta a:visited {
+        color:white;
+    }
+    
+    .index-post-summary-featured footer {
+      float: right;
+      min-width: 300px;
+    }
+    
+    
+    
+    .index-post-summary-featured section.post-excerpt {
+        margin-bottom:20px;
+    }
+    .index-post-summary-featured section.post-excerpt p {
+      margin:0px;
+      text-align:left;
+      font-family:"Lato", sans-serif;
+      font-size:1.5rem;
+      line-height: 34px;
+      color:#E2E2E2;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .index-post-summary-featured a.index-post-button, .index-post-summary-featured a.index-post-button:visited {
+      display:inline-block;
+      font-family:"Lato", sans-serif;
+      font-size: 1rem;
+      font-weight:500;
+      line-height: 1.5rem;
+      padding:10px 20px;
+      color:white;
+      border:1px solid white;
+      border-radius: 6px;
+      text-decoration: none;
+      text-transform:uppercase;
+      transition: all 0.15s ease-in-out;
+    }
+    
+    .index-post-summary-featured a.index-post-button:hover {
+      background:white;
+      color: #373737;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased; 
+    }
+    
+    
+    
+    /* message of the day */
+    .messageoftheday {
+      font-size:50px;
+      line-height: 70px;
+      margin:160px 0px;
+      text-align:center;
+    }
+    
+    
     
     /* ==========================================================================
       6. Post Header - 
@@ -581,28 +853,132 @@ table { border-collapse: collapse; border-spacing: 0; }
       
     .article-intro .post-title {
       color: white;
-        font-size:1.875rem;
-        line-height:2.75rem;
-        margin:0px;
-        margin-bottom:20px;
+      font-size:1.875rem;
+      line-height:2.75rem;
+      margin:0px;
+      margin-bottom:20px;
     }
     
     .post-header .post-title {
-        /*font-weight: 600;*/
+      font-family: "Lato", sans-serif;
+      color:#373737;
+      font-size: 32px;
+      line-height: 44px;
     }
     
-    .post-header .post-title a {
+    .post-header .post-title a, .post-header .post-title a:visited {
         text-decoration: none;
+        color:#373737;
     }
       
     /* ==========================================================================
       7. Post Typography - 
       ========================================================================== */
       
-    .post-template p a, .article-intro > p p a:visited, .article-intro > p li a, .article-intro > p li a:visited {
-        color:#0063d1;
+    .post-template p a, .article-intro > p a:visited, .article-intro > p li a, .article-intro > p li a:visited {
+      color:#0DA5E4;
+      text-decoration:none;
+      transition: all 0.15s ease-in-out;
+      border-bottom:1px solid transparent;
     }
+    .post-template p a:hover, .article-intro > p li a:hover {
+      border-bottom:1px solid #0DA5E4;
+    }
+    /* 
+      style inline-level post elements to give them a centered look on desktop.
+    */
+    section.post-content > p, 
+    section.post-content > ul, 
+    section.post-content > ol, 
+    section.post-content > pre {
+      width:100%;
+      max-width: 620px;
+      margin:0 auto 28px;
+      color:#656565;
+      font-size:18px;
+      line-height: 28px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    section.post-content > h1, section.post-content > h2, section.post-content > h3, section.post-content > h4, section.post-content > h5, section.post-content > h6 {
+      width:100%;
+      max-width: 620px;
+      margin:0 auto 28px;
+      color:#373737;
+    }
+    
+    /*
+      extended type setting, these things are set differently.
+    */
+    section.post-content > blockquote {
+      width:100%;
+      max-width:830px;
+      margin:40px auto;
+    }
+    section.post-content > blockquote p {
+      color:#373737;
+      font-size:36px;
+      line-height:46px;
+      font-style:italic;
+      text-align:justify
+    }
+    
+    .post-template section.post-content > p:first-child {
+      color:#373737;
+      font-size:26px;
+      line-height:32px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    
+    .post-template .post-header {
+      width:100%;
+      max-width: 620px;
+      margin:0 auto 28px;
       
+    }
+    .post-template .post-header .post-title {
+      width:100%;
+      font-family:"Lato", sans-serif;
+      font-size:64px;
+      line-height: 64px;
+      margin:15px 0px;
+      text-align: center;
+    }
+    .post-header .post-date {
+      width:100%;
+      font-size:16px;
+      line-height:24px;
+      font-family: "Lato", sans-serif;
+      text-align: center;
+      display: inline-block;
+      margin: 20px 0px 0px;
+      color:#9B9B9B;
+      -webkit-font-smoothing: antialiased;
+      font-weight: 400;
+    }
+    .post-template .post-vertibar {
+      display: block;
+      position: relative;
+      width:90%;
+      height:7px;
+      max-width:400px;
+      background-color:#373737;
+      border-radius:5px;
+      margin:50px auto;
+    }
+    
+    /* HR */
+    .post-template hr {
+      max-width: 400px;
+      margin: 40px auto;
+      width: 90%;
+      display: block;
+      border: none;
+      height: 7px;
+      background: black;
+      border-radius: 21px;
+    }
       
     /* ==========================================================================
       8. Post Images - 
@@ -610,39 +986,93 @@ table { border-collapse: collapse; border-spacing: 0; }
     
     /* target embedded images */
     .grid-column p img {
-        width: 100%;
+      width: 100%;
+        /*width: 100%;
         max-width: 45%;
         max-width: calc(50% - 20px);
         position: absolute;
         margin-left: -55%;
-        margin-left: calc(-50% - 20px);
-        
+        margin-left: calc(-50% - 20px);*/
     }
     @media (max-width: 960px) {
       .grid-column p img {
-        position: relative;
+        /*position: relative;
         margin-left:0%;
-        max-width:100%;
+        max-width:100%;*/
       }
     }
+    
+    
+    .post-content aside {
+      float: left;
+      max-width: 420px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      margin-right: 50px;
+      margin-bottom: 30px;
+    }
+    .post-content aside > h6 {
+      color:#656565;
+      font-size:24px;
+      line-height: 32px;
+      font-family:"Lato", sans-serif;
+      margin:0px 0px 16px 0px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    .post-content aside > span:first-child, .post-content aside > p {
+      color:#656565;
+      font-size:12px;
+      line-height: 20px;
+      font-family:"Lato", sans-serif;
+      margin:0px 0px 16px 0px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    .post-content aside > p {
+      font-family:georgia, serif;
+    }
+    .post-content aside > p:last-child {
+      margin:0;
+    }
+    
+    .post-content aside > p {}
+    .post-content aside > p a  {}
+      
+    @media (max-width: 800px) {
+      .post-content aside {
+        float: none;
+        max-width: 800px;
+      }
+    }
+      
     
     /* ==========================================================================
       9. Footers - 
       ========================================================================== */
       
     footer.post-meta .author-thumb {
-        width: 25px;
-        border-radius:50px;
-        float:left;
-        margin-right:10px;
+      width: 50px;
+      height: 50px;
+      border-radius:50px;
+      float:left;
+      margin-right:10px;
+      margin-bottom:20px;
     }
 
     footer.post-meta {
-        line-height: 25px;
+      line-height: 25px;
+      z-index: 1;
+      position: relative;
+      display: inline-block;
+      width:100%;
     }
       
     footer a, footer a:visited {
-        color:#0063d1;
+      color:#0DA5E4;
     }
     
     .grid-wrapper > footer {
@@ -656,13 +1086,72 @@ table { border-collapse: collapse; border-spacing: 0; }
     }
     
     
+    /*The actual footer*/
+    footer.footer {
+      display: block;
+      width: auto;
+      max-width:540px;
+      height:auto;
+    }
+    footer.footer p, footer.footer .poweredby {
+      font-family:"Lato", sans-serif;
+      font-size:14px;
+      line-height: 20px;
+      text-align:justify;
+      color:#4A4A4A;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+      margin-bottom: 0px;
+    }
+    footer.footer p a, footer.footer p a:visited, footer.footer .poweredby a, footer.footer .poweredby a:visited {
+      color:#4A4A4A;
+      text-decoration:underline;
+      border:none;
+    }
+    footer.footer p a:hover, footer.footer .poweredby a:hover {
+      text-decoration:none;
+      border:none;
+    }
+    
+    
+    .post-content .post-master-footer {
+      margin: 0px auto;
+      max-width: 640px;
+      display: block;
+      width: 100%;
+      color: #656565;
+      margin-bottom:20px;
+      border-radius:10px;
+      background-color:white;
+      box-sizing: border-box;
+      padding:20px;
+    }
+    
+    .post-content .post-master-footer > span:first-child, .post-content .post-master-footer > p {
+      color:#656565;
+      font-size:12px;
+      line-height: 20px;
+      font-family:"Lato", sans-serif;
+      margin:0px 0px 16px 0px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    .post-content .post-master-footer > p {
+      /*font-family:georgia, serif;*/
+    }
+    .post-content .post-master-footer > p:last-child {
+      margin:0;
+    }
+    .post-content .post-master-footer > p {}
+    .post-content .post-master-footer > p a  {}
+      
+    
     /* ==========================================================================
       10. Pages - 
       ========================================================================== */
       
-      
     .page-changelog li span {
-        background: #0063d1;
+        background: #0DA5E4;
         color: white;
         padding: 3px 10px;
         margin-left: 10px;
@@ -673,3 +1162,315 @@ table { border-collapse: collapse; border-spacing: 0; }
         padding: 0px;
         padding-left: 10px;
     }
+    /* special post stuff */
+    .actualpostcontentarea {
+      margin-bottom:60px;
+      margin-left:60px;
+    }
+    
+    @media (max-width: 800px) {
+      .actualpostcontentarea {
+        margin-left:0px;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .actualpostcontentarea {
+        margin-left:0px;
+      }
+    }
+    
+    .page-template .post-header .post-title {
+      text-align: left;
+    }
+    
+    .grid-block .image-div.special-image-div {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: auto;
+      position: absolute;
+      box-sizing: border-box;
+      left: 0px;
+      top: 0px;
+      background-size: cover;
+      opacity: 0.5;
+      pointer-events: none;
+      background-position: center;
+      /* background-size: 100% auto; */
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    
+    /* ==========================================================================
+      11. Next / Previous asides -
+      ========================================================================== */
+    
+    .nextpreviousenclosingbox {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    aside.read-next, aside.read-previous {
+      display: block;
+      position:relative;
+      margin-bottom:0px;
+      color:white;
+      background:black;
+      margin:0px;
+      width: 50%;
+      padding:40px;
+      box-sizing: border-box;
+      float:left;
+      height:400px;
+    }
+    aside.read-next .read-next-story h3, aside.read-previous .read-prev-story h3 {
+      font-family:"SF UI Text","Lato", sans-serif;
+      font-size:16px;
+      line-height:32px;
+      margin-bottom:10px;
+      font-weight:200;
+      color:white;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+      /*border-bottom:1px solid transparent;*/
+      /*transition: all 0.15s ease-in-out;*/
+    }
+    aside.read-next .read-next-story:hover, aside.read-previous .read-prev-story:hover {
+      text-decoration: none;
+    }
+    
+    aside.read-next .nextpreviousArticleTitle, aside.read-previous .nextpreviousArticleTitle, aside.read-next .nextpreviousArticleTitle:visited, aside.read-previous .nextpreviousArticleTitle:visited {
+      font-family:"SF UI Text","Lato", sans-serif;
+      font-size:30px;
+      line-height:42px;
+      margin-bottom:10px;
+      font-weight:400;
+      color:white;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+    }
+    aside.read-next .nextpreviousArticleTitle:hover, aside.read-previous .nextpreviousArticleTitle:hover {
+      text-decoration:none;
+      color:white;
+    }
+    
+    .nextpreviousenclosingbox .post-excerpt p {
+      color:#ACACAC;
+      font-size:20px;
+      line-height:26px;
+      margin-bottom:0px;
+      font-weight:400;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+    }
+    
+    /*Buttons*/
+    .nextpreviousButton {
+      color:white;
+      font-family: "Lato", sans-serif;
+      border-width:1px;
+      border-style:solid;
+      border-color:white;
+      padding:10px 20px;
+      text-decoration: none;
+      width: 100px;
+      height: auto;
+      text-align: center;
+      position: relative;
+      display: block;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+      border-radius: 6px;
+      text-transform: uppercase;
+      -webkit-transition: all 150ms cubic-bezier(0.260, 1.480, 0.470, 0.960);
+      transition: all 150ms cubic-bezier(0.260, 1.480, 0.470, 0.960);
+      position: absolute;
+      bottom:40px;
+    }
+    
+    .nextpreviousButton:hover {
+      text-decoration: none;
+      background-color:white;
+      color:black;
+    }
+    
+    @media (max-width: 800px) {
+      aside.read-next, aside.read-previous {
+        width: 100%;
+        padding:20px;
+        float:none;
+        height:auto;
+      }
+      .nextpreviousButton {
+        text-align: center;
+        position: relative;
+        display: block;
+        margin: 0px;
+        bottom: auto;
+        margin-top: 10px;
+
+      }
+    }
+    
+    
+    /* ==========================================================================
+      12. Author Aside box at the bottom.
+      ========================================================================== */
+    
+    .post-content aside.superwideAuthorAside {
+      display: block;
+      width: 100%;
+      max-width:640px;
+      margin:0px auto;
+      box-sizing: border-box;
+      padding:20px;
+      background: white;
+      border-radius:10px;
+      line-height: 25px;
+      z-index: 1;
+      position: relative;
+      display: block;
+      width:100%;
+      float:none;
+    }
+    
+    .post-content aside.superwideAuthorAside .author-thumb {
+      width: 160px;
+      height: 160px;
+      border-radius:80px;
+      float:left;
+      margin-right:10px;
+      margin-bottom:0px;
+    }
+    .post-content aside.superwideAuthorAside a, .post-content aside.superwideAuthorAside a:visited {
+      color:#0DA5E4;
+    }
+    
+    .post-content aside.superwideAuthorAside p {
+      opacity:0.5;
+      font-family:"Lato", sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      width:auto;
+      margin-top:10px;
+      margin-bottom:0px;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    
+    .post-content aside.superwideAuthorAside p {
+      color:black;
+    }
+    .post-content aside.superwideAuthorAside.post-meta a, .post-content aside.superwideAuthorAside.post-meta a:visited {
+      color:#0DA5E4;
+    }
+    
+    .post-content aside.superwideAuthorAside {
+      float: none;
+      min-width: 300px;
+    }
+    
+  /* ==========================================================================
+    13. Author Page.
+    ========================================================================== */
+      
+      
+  /* ==========================================================================
+    14. Freelance Page
+    ========================================================================== */
+    .freelance-page {
+      
+    }
+    
+    .freelance-page .backToArticlesBox {
+      width:100%;
+      height: 100px;
+      margin-top:20px;
+      margin-bottom:100px;
+    }
+    
+    .freelance-page .backToArticlesBox a, .freelance-page .backToArticlesBox a:visited {
+      display: block;
+      margin:0px auto;
+      color:#1C1C1C;
+      text-decoration:none;
+      font-family:"Lato", sans-serif;
+      border:1px solid #1C1C1C;
+      padding:10px 20px;
+      border-radius:6px;
+      transition: all 0.15s ease-in-out;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+      width: 160px;
+      text-align: center;
+    }
+    
+    .freelance-page .backToArticlesBox a:hover {
+      background:#1C1C1C;
+      color:white;
+    }
+    
+    
+    .freelance-page .freelance-page-content {
+      margin:0px auto;
+      width:100%;
+      max-width: 540px;
+    }
+    
+    .freelance-page .freelance-page-content h2 {
+      font-family:"SF UI TEXT", "Lato", sans-serif;
+      text-align: center;
+      font-size:20px;
+      font-weight: 100;
+      line-height: 75px;
+      color:#1C1C1C;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+    }
+    .freelance-page .freelance-page-content hr {
+      width:100%;
+      border:none;
+      background: #1c1c1c;
+      height:4px;
+      border-radius:2px;
+      margin:20px auto;
+      max-width: 100%;
+      padding:0px;
+    }
+    
+    .freelance-page .freelance-page-content p {
+      font-family:"SF UI TEXT", "Lato", sans-serif;
+      text-align: left;
+      font-size:20px;
+      font-weight: 100;
+      line-height: 26px;
+      margin-bottom:26px;
+      color:#1C1C1C;
+      -webkit-font-smoothing:antialiased;
+      font-smoothing:antialiased;
+    }
+    .freelance-page .freelance-page-content p strong {
+      font-weight: 500;
+    }
+    .freelance-page .freelance-page-content p a, .freelance-page .freelance-page-content p a:visited {
+      font-weight: 500;
+      text-decoration: none;
+      color:#1c1c1c;
+      border-bottom:1px solid #1c1c1c;
+    }
+    .freelance-page .freelance-page-content p a:hover {
+      /*text-decoration: none;*/
+      color:#0DA5E4;
+      border-bottom:1px solid #0DA5E4;
+    }
+    
+    .page-freelance footer.footer {
+      display: none;
+    }
+
+    
+  /* ==========================================================================
+    15. Tags Page
+    ========================================================================== */
