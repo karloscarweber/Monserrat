@@ -198,7 +198,7 @@ table { border-collapse: collapse; border-spacing: 0; }
        margin-right:40px;
        margin-bottom:40px;
    }
-   .grid-column.double-column:nth-child(2n+0) {
+   .grid-column.double-column:nth-child(2n+1) {
        margin-right:0px;
    }
    @media (max-width: 960px) {
@@ -210,7 +210,6 @@ table { border-collapse: collapse; border-spacing: 0; }
        }
    }
 
-   
    /* Centered Double*/
    .grid-column.double-centered-column {
        width: 45%;
@@ -662,14 +661,23 @@ table { border-collapse: collapse; border-spacing: 0; }
     5. Index - 
     ========================================================================== */
     
+    .homepageGrid-row {
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    
     /* Hide the first post of course. */
     /* We're featuring it in the tippy top. */
     .homepageGrid-row .post:first-child {
-      display: none;
+      display: none;n
     }
     /* but on the subsequent index pages we don't want to hide this. */
     .paged.archive-template .homepageGrid-row .post:first-child {
       display: block;
+    }
+    /* Marginalize posts differently on the home page. */
+    .paged.archive-template .grid-column.double-column:nth-child(2n+0) {
+        margin-right:0px;
     }
     
     article.index-post-summary {
@@ -692,8 +700,6 @@ table { border-collapse: collapse; border-spacing: 0; }
     .index-post-summary footer p, .index-post-summary footer.post-meta a, .index-post-summary footer.post-meta a:visited {
         color:#373737;
     }
-    
-    
     
     .index-post-summary section.post-excerpt {
         margin-bottom:20px;
