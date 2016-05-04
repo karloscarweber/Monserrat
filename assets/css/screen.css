@@ -701,6 +701,9 @@ table { border-collapse: collapse; border-spacing: 0; }
     .paged.archive-template .homepageGrid-row .post:first-child {
       display: block;
     }
+    .tag-template .homepageGrid-row .post:first-child {
+      display: block;
+    }
     
     article.index-post-summary {
         min-height: 360px;
